@@ -49,7 +49,11 @@ const Modal: React.FC<ModalProps> = ({
 					<Header>
 						<Title>{title || ''}</Title>
 						{hasCloseBtn && (
-							<CloseButton bgColor={BUTTON_RED_COLOR} onClick={onModalClose}>
+							<CloseButton
+								bgColor={BUTTON_RED_COLOR}
+								type="button"
+								onClick={onModalClose}
+							>
 								<img src={cross} alt="close" width="20" height="20" />
 							</CloseButton>
 						)}
@@ -60,12 +64,15 @@ const Modal: React.FC<ModalProps> = ({
 					<Footer>
 						<ControlBtn
 							bgColor={BUTTON_GREEN_COLOR}
-							type="submit"
 							onClick={!isForm ? onConfirm : () => {}}
 						>
 							{confirmText || 'Confirm'}
 						</ControlBtn>
-						<ControlBtn bgColor={BUTTON_RED_COLOR} onClick={onModalClose}>
+						<ControlBtn
+							bgColor={BUTTON_RED_COLOR}
+							type="button"
+							onClick={onModalClose}
+						>
 							{cancelText || 'Cancel'}
 						</ControlBtn>
 					</Footer>
