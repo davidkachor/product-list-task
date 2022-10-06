@@ -5,9 +5,11 @@ import { Product } from '../../../../types'
 import Modal from '../../../common/Modal'
 
 import { Item, Image, Title, Remove, TitleButtonContainer } from './styled'
+import { useNavigate } from 'react-router-dom'
 
 const ProductItem: React.FC<Product> = ({ name, id, imageUrl }) => {
 	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const removeHandler = () => {
@@ -20,13 +22,12 @@ const ProductItem: React.FC<Product> = ({ name, id, imageUrl }) => {
 			<Item>
 				<Image src={imageUrl} />
 				<TitleButtonContainer>
-					<Title>{name + ' ' + id}</Title>
+					<Title to={`/products/${id}`}>{name}</Title>
 					<Remove onClick={() => setIsModalOpen(true)}>Remove</Remove>
 				</TitleButtonContainer>
 			</Item>
 			{isModalOpen && (
 				<Modal
-					isForm={true}
 					confirmText="Yes"
 					cancelText="No"
 					onConfirm={removeHandler}

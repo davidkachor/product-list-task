@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Button from '../../../common/Button'
 import { BUTTON_RED_COLOR } from '../../../../variable'
+import {Link} from "react-router-dom";
 
 export const Item = styled.article`
 	display: flex;
@@ -28,8 +29,8 @@ export const TitleButtonContainer = styled.div`
 	justify-content: space-between;
 `
 
-export const Title = styled.h2`
-	//text-align: ;
+export const Title = styled(Link)`
+	font-weight: bold;	
 `
 
 export const Remove = styled(Button).attrs({

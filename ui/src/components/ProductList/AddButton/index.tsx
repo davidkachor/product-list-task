@@ -5,6 +5,9 @@ import Modal from '../../common/Modal'
 import AddForm from './AddForm'
 import { ButtonStyled } from './styled'
 import { BUTTON_GREEN_COLOR } from '../../../variable'
+import { useAppDispatch } from '../../../hooks'
+import { add } from '../../../store/slices/product-slice'
+import { isFormDataValid, compileFormData } from '../../../helpers'
 
 export type FormInputData = {
 	name?: string
@@ -16,21 +19,13 @@ export type FormInputData = {
 }
 
 const AddButton: React.FC = () => {
+	const dispatch = useAppDispatch()
 	const [modalOpened, setModalOpened] = useState(false)
 	const [formData, setFormData] = useState<FormInputData>({})
-	const [isFormValid, setIsFormValid] = useState(false)
+	const [isFormValid, setIsFormValid] = useState(isFormDataValid(formData))
 
 	useEffect(() => {
-		setIsFormValid(
-			Boolean(
-				formData.name &&
-					formData.count &&
-					formData.height &&
-					formData.width &&
-					formData.imageUrl &&
-					formData.weight
-			)
-		)
+		setIsFormValid(isFormDataValid(formData))
 	}, [formData])
 
 	const clickHandler = () => {
@@ -43,7 +38,8 @@ const AddButton: React.FC = () => {
 		setFormData(prev => ({ ...prev, ...updates }))
 	}
 	const confirmHandler = () => {
-		console.log(formData)
+		closeHandler()
+		dispatch(add(compileFormData(formData)))
 	}
 
 	return (

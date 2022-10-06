@@ -14,7 +14,6 @@ import {
 import cross from '../../../assets/icons/cross.svg'
 import {
 	BUTTON_GREEN_COLOR,
-	BUTTON_GREY_COLOR,
 	BUTTON_RED_COLOR,
 } from '../../../variable'
 
@@ -74,9 +73,10 @@ const Modal: React.FC<ModalProps> = ({
 				{!!onConfirm && (
 					<Footer>
 						<ControlBtn
-							bgColor={isSubmittable ? BUTTON_GREEN_COLOR : BUTTON_GREY_COLOR}
-							isSubmittable={isSubmittable}
-							onClick={!isForm && isSubmittable ? onConfirm : () => {}}
+							bgColor={BUTTON_GREEN_COLOR}
+							disabled={!isSubmittable}
+							onClick={onConfirm}
+							type={isForm ? 'submit' : 'button'}
 						>
 							{confirmText || 'Confirm'}
 						</ControlBtn>

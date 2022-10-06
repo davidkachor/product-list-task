@@ -21,4 +21,13 @@ export const ButtonStyled = styled.button<{ bgColor?: string }>`
 	&:hover {
 		filter: brightness(1.2);
 	}
+
+	&:disabled {
+		background: #f1f1f1;
+		color: gray;
+		cursor: default;
+	}
+	&:disabled:hover {
+		filter: none;
+	}
 `
