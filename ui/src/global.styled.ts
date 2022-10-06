@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -18,6 +18,7 @@ export default createGlobalStyle`
     padding: 0;
     border: 0;
     vertical-align: baseline;
+    font-family: Arial,sans-serif;
   }
 
   /* HTML5 display-role reset for older browsers */

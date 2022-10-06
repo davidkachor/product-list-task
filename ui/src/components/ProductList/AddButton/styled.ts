@@ -10,4 +10,5 @@ export const ButtonStyled = styled(Button)`
   bottom: 20px;
   font-size: 75px;
   padding: 0 !important;
+  z-index: 10;
 `
