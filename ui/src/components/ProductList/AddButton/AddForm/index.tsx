@@ -19,11 +19,12 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 	const id = useId()
 	const [imgURL, setImgURL] = useState('')
 	const [showImg, setShowImg] = useState(false)
+	const [weight, setWeight] = useState({ value: '', type: 'kg' })
 
 	const showImgHandler: EventHandler<any> = () => {
 		if (!isUrlValid(imgURL)) return
 		setShowImg(true)
-		setInputs({imageUrl: imgURL})
+		setInputs({ imageUrl: imgURL })
 	}
 
 	return (
@@ -56,13 +57,22 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 						step="0.1"
 						min="0.1"
 						id={`weight-${id}`}
-						onChange={event => setInputs({ weight: event.target.value })}
+						onChange={event => {
+							setWeight(prev => ({ ...prev, value: event.target.value }))
+							setInputs({ weight: event.target.value + weight.type })
+						}}
 						placeholder="What is the weight of the product?"
 					/>
-					<Select>
-						<option>g</option>
-						<option>kg</option>
-						<option>t</option>
+					<Select
+						value={weight.type}
+						onChange={event => {
+							setWeight(prev => ({ ...prev, type: event.target.value }))
+							setInputs({ weight: weight.value + event.target.value })
+						}}
+					>
+						<option value={'g'}>g</option>
+						<option value={'kg'}>kg</option>
+						<option value={'t'}>t</option>
 					</Select>
 				</InputWrapper>
 			</FormController>

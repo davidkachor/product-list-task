@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
-import { ButtonStyled } from './styled'
 import Modal from '../../common/Modal'
-import { BUTTON_GREEN_COLOR } from '../../../variable'
 import AddForm from './AddForm'
+import { ButtonStyled } from './styled'
+import { BUTTON_GREEN_COLOR } from '../../../variable'
 
 export type FormInputData = {
 	name?: string
