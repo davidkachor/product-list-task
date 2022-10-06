@@ -1,7 +1,12 @@
 import React from 'react'
+import AddButton from '../../components/ProductList/AddButton'
 
 const ProductList: React.FC = () => {
-    return <h1>Product List</h1>
+	return (
+		<>
+			<AddButton />
+		</>
+	)
 }
 
 export default ProductList
