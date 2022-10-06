@@ -10,6 +10,9 @@ const productSlice = createSlice({
 			const id = action.payload
 			return state.filter(e => e.id !== id)
 		},
+		add(state, action: PayloadAction<Product>) {
+			return [action.payload, ...state]
+		},
 	},
 })
 

@@ -6,10 +6,11 @@ const Container: React.FC<{
 	isForm?: boolean
 	children: React.ReactNode
 	onSubmit?: () => void
-}> = ({ isForm, children, onSubmit }) => {
+	isSubmittable?: boolean
+}> = ({ isForm, children, onSubmit, isSubmittable }) => {
 	const submitHandler: FormEventHandler = event => {
 		event.preventDefault()
-		console.log('form')
+		if (!isSubmittable) return
 		onSubmit?.()
 	}
 

@@ -12,7 +12,11 @@ import {
 	ControlBtn,
 } from './styled'
 import cross from '../../../assets/icons/cross.svg'
-import { BUTTON_GREEN_COLOR, BUTTON_RED_COLOR } from '../../../variable'
+import {
+	BUTTON_GREEN_COLOR,
+	BUTTON_GREY_COLOR,
+	BUTTON_RED_COLOR,
+} from '../../../variable'
 
 export type ModalProps = {
 	children: ReactNode
@@ -23,6 +27,7 @@ export type ModalProps = {
 	cancelText?: string
 	onConfirm?: () => void
 	isForm?: boolean
+	isSubmittable?: boolean
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -34,7 +39,9 @@ const Modal: React.FC<ModalProps> = ({
 	confirmText,
 	onConfirm,
 	isForm,
+	isSubmittable,
 }) => {
+	isSubmittable = isSubmittable === undefined ? true : isSubmittable
 	const layoutRef = useRef(null)
 
 	const closeHandler: React.EventHandler<any> = event => {
@@ -44,7 +51,11 @@ const Modal: React.FC<ModalProps> = ({
 
 	return createPortal(
 		<Layout ref={layoutRef} onClick={closeHandler}>
-			<Container isForm={isForm} onSubmit={onConfirm}>
+			<Container
+				isForm={isForm}
+				isSubmittable={isSubmittable}
+				onSubmit={onConfirm}
+			>
 				{(!!title || hasCloseBtn) && (
 					<Header>
 						<Title>{title || ''}</Title>
@@ -63,8 +74,9 @@ const Modal: React.FC<ModalProps> = ({
 				{!!onConfirm && (
 					<Footer>
 						<ControlBtn
-							bgColor={BUTTON_GREEN_COLOR}
-							onClick={!isForm ? onConfirm : () => {}}
+							bgColor={isSubmittable ? BUTTON_GREEN_COLOR : BUTTON_GREY_COLOR}
+							isSubmittable={isSubmittable}
+							onClick={!isForm && isSubmittable ? onConfirm : () => {}}
 						>
 							{confirmText || 'Confirm'}
 						</ControlBtn>

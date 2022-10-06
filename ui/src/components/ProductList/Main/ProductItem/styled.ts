@@ -35,6 +35,6 @@ export const Title = styled.h2`
 export const Remove = styled(Button).attrs({
 	bgColor: BUTTON_RED_COLOR,
 })`
-	width: 200px;
+	max-width: 200px;
 	align-self: flex-end;
 `

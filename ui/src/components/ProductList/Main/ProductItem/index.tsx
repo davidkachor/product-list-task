@@ -11,7 +11,6 @@ const ProductItem: React.FC<Product> = ({ name, id, imageUrl }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const removeHandler = () => {
-		console.log('removed')
 		dispatch(remove(id))
 		setIsModalOpen(false)
 	}

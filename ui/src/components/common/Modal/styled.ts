@@ -32,6 +32,12 @@ export const Footer = styled.div`
 	margin-top: 10px;
 `
 
-export const ControlBtn = styled(Button)`
+export const ControlBtn = styled(Button)<{
+	isSubmittable?: boolean
+}>`
 	flex: 1 1 auto;
+	cursor: ${props => !props.isSubmittable && 'default'};
+	&:hover {
+		${props => !props.isSubmittable && 'filter: none'}
+	}
 `
