@@ -12,17 +12,6 @@ export const Layout = styled.div`
 	align-items: center;
 `
 
-export const Container = styled.form`
-
-  background: white;
-	padding: 15px;
-	width: 450px;
-	box-sizing: border-box;
-	max-width: calc(100% - 20px);
-	border-radius: 8px;
-	z-index: 101;
-`
-
 export const Header = styled.div`
 	display: flex;
 	justify-content: space-between;

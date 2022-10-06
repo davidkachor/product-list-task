@@ -1,9 +1,10 @@
 import React, { ReactNode, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
+import Container from './Container'
+
 import {
 	Layout,
-	Container,
 	Header,
 	Title,
 	CloseButton,
@@ -21,6 +22,7 @@ export type ModalProps = {
 	confirmText?: string
 	cancelText?: string
 	onConfirm?: () => void
+	isForm?: boolean
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -31,6 +33,7 @@ const Modal: React.FC<ModalProps> = ({
 	cancelText,
 	confirmText,
 	onConfirm,
+	isForm,
 }) => {
 	const layoutRef = useRef(null)
 
@@ -41,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({
 
 	return createPortal(
 		<Layout ref={layoutRef} onClick={closeHandler}>
-			<Container>
+			<Container isForm={isForm} onSubmit={onConfirm}>
 				{(!!title || hasCloseBtn) && (
 					<Header>
 						<Title>{title || ''}</Title>
@@ -55,7 +58,11 @@ const Modal: React.FC<ModalProps> = ({
 				{children}
 				{!!onConfirm && (
 					<Footer>
-						<ControlBtn bgColor={BUTTON_GREEN_COLOR} type="submit" onClick={onConfirm}>
+						<ControlBtn
+							bgColor={BUTTON_GREEN_COLOR}
+							type="submit"
+							onClick={!isForm ? onConfirm : () => {}}
+						>
 							{confirmText || 'Confirm'}
 						</ControlBtn>
 						<ControlBtn bgColor={BUTTON_RED_COLOR} onClick={onModalClose}>

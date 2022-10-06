@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import { ButtonStyled } from './styled'
-import Modal from "../../common/Modal";
+import Modal from '../../common/Modal'
+import { BUTTON_GREEN_COLOR } from '../../../variable'
 
 const AddButton: React.FC = () => {
 	const [modalOpened, setModalOpened] = useState(false)
@@ -16,7 +17,9 @@ const AddButton: React.FC = () => {
 	return (
 		<>
 			{createPortal(
-				<ButtonStyled onClick={clickHandler}>+</ButtonStyled>,
+				<ButtonStyled onClick={clickHandler} bgColor={BUTTON_GREEN_COLOR}>
+					+
+				</ButtonStyled>,
 				document.getElementById('btn-root') as HTMLElement
 			)}
 			{modalOpened && (
@@ -25,6 +28,7 @@ const AddButton: React.FC = () => {
 					hasCloseBtn={true}
 					onModalClose={closeHandler}
 					onConfirm={() => console.log('confirmed')}
+					isForm={true}
 				>
 					hello
 				</Modal>

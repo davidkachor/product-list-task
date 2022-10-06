@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const ButtonStyled = styled.button<{ bgColor?: string }>`
 	background: ${props => (props.bgColor ? props.bgColor : '#676767')};
+	font-weight: bold;
+	font-size: 16px;
 	color: #ffffff;
 	padding: 10px;
 	border: none;
