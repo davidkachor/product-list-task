@@ -22,4 +22,5 @@ export const ListWrapper = styled.ul`
 export const Message = styled.p`
 	font-weight: bold;
 	font-size: 20px;
+	text-align: center;
 `
