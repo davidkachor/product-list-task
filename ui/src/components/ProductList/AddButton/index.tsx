@@ -40,6 +40,7 @@ const AddButton: React.FC = () => {
 	const confirmHandler = () => {
 		closeHandler()
 		dispatch(add(compileFormData(formData)))
+		setFormData({})
 	}
 
 	return (
