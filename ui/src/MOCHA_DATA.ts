@@ -6,7 +6,26 @@ export const MOCHA_DATA: Product[] = [
 		imageUrl:
 			'https://www.imgacademy.com/themes/custom/imgacademy/images/helpbox-contact.jpg',
 		count: 2,
-		comments: [],
+		comments: [
+			{
+				id: '0',
+				productId: '1',
+				date: new Date().toString(),
+				description: 'Cool, i like it!',
+			},
+			{
+				id: '1',
+				productId: '1',
+				date: new Date().toString(),
+				description: 'Cool, i like it!',
+			},
+			{
+				id: '2',
+				productId: '1',
+				date: new Date().toString(),
+				description: 'Cool, i like it!',
+			},
+		],
 		name: 'Hello World',
 		size: {
 			height: 20,
