@@ -1,13 +1,18 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+
+const ProductList = React.lazy(() => import('../pages/ProductList'))
+const ProductInfo = React.lazy(() => import('../pages/ProductInfo'))
+const NotFound = React.lazy(() => import('../pages/NotFound'))
 
 const MainRoutes: React.FC = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<h1>PRODUCT LIST PAGE</h1>} />
-				<Route path="/:id" element={<h1>PRODUCT PAGE</h1>} />
-				<Route path="*" element={<h1>404 not found</h1>} />
+				<Route path="/" element={<Navigate to="/adverts" />} />
+				<Route path="/adverts" element={<ProductList />} />
+				<Route path="/adverts/:id" element={<ProductInfo />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
 	)
