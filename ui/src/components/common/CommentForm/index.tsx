@@ -23,6 +23,7 @@ const CommentForm: React.FC<{ id: string }> = ({ id }) => {
 				},
 			})
 		)
+		setDescription('')
 	}
 
 	return (

@@ -51,7 +51,6 @@ const EditButton: React.FC<{ productId: string }> = ({ productId }) => {
 	}
 
 	const confirmHandler = () => {
-		console.log(formData)
 		dispatch(editProduct({ productId, updates: formData }))
 		setIsFormOpen(false)
 	}
@@ -65,6 +64,8 @@ const EditButton: React.FC<{ productId: string }> = ({ productId }) => {
 					onModalClose={() => setIsFormOpen(false)}
 					isSubmittable={isFormValid}
 					onConfirm={confirmHandler}
+					title={`Edit product "${name}"`}
+					hasCloseBtn={true}
 				>
 					<ProductForm setInputs={setInputsHandler} inputsState={formData} />
 				</Modal>
