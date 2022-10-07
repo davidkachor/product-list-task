@@ -1,4 +1,4 @@
-import { Product, FormInputData } from '../types'
+import { Product, FormInputData } from '@/types'
 import { v4 } from 'uuid'
 
 const compileFormData: (data: FormInputData) => Product = ({

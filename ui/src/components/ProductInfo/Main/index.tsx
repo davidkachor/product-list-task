@@ -1,10 +1,11 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
+import { useAppSelector } from '@/hooks'
+
+import NotFound from '@/pages/NotFound'
+import ProductItem from './ProductItem'
 
 import { Wrapper } from './styled'
-import { useParams } from 'react-router-dom'
-import { useAppSelector } from '../../../hooks'
-import NotFound from '../../../pages/NotFound'
-import ProductItem from './ProductItem'
 
 const Main: React.FC = () => {
 	const { id } = useParams()

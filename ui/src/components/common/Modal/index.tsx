@@ -3,6 +3,11 @@ import { createPortal } from 'react-dom'
 
 import Container from './Container'
 
+import cross from '@/assets/icons/cross.svg'
+import {
+	BUTTON_GREEN_COLOR,
+	BUTTON_RED_COLOR,
+} from '@/variable'
 import {
 	Layout,
 	Header,
@@ -11,11 +16,6 @@ import {
 	Footer,
 	ControlBtn,
 } from './styled'
-import cross from '../../../assets/icons/cross.svg'
-import {
-	BUTTON_GREEN_COLOR,
-	BUTTON_RED_COLOR,
-} from '../../../variable'
 
 export type ModalProps = {
 	children: ReactNode

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from '../../common/Button'
+import Button from '@/components/common/Button'
 
 export const ButtonStyled = styled(Button)`
 	border-radius: 100% !important;

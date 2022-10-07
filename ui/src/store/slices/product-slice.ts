@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Comment, FormInputData, Product } from '../../types'
+import { Comment, FormInputData, Product } from '@/types'
 
 const productSlice = createSlice({
 	initialState:

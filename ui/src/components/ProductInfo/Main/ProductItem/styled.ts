@@ -18,7 +18,7 @@ export const Right = styled.section`
 	flex-direction: column;
 	flex: 1 1 auto;
 	gap: 10px;
-	
+
 	p {
 		font-size: 20px;
 	}

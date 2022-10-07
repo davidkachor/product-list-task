@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/hooks'
 
-import { useAppDispatch, useAppSelector } from '../../../hooks'
-import { editProduct } from '../../../store/slices/product-slice'
-import { isFormDataValid } from '../../../helpers'
-import { Product, FormInputData } from '../../../types'
-import Button from '../Button'
-import Modal from '../Modal'
-import ProductForm from '../ProductForm'
+import { editProduct } from '@/store/slices/product-slice'
+import { isFormDataValid } from '@/helpers'
+
+import { Product, FormInputData } from '@/types'
+
+import Button from '@/components/common/Button'
+import Modal from '@/components/common/Modal'
+import ProductForm from '@/components/common/ProductForm'
 
 const EditButton: React.FC<{ productId: string }> = ({ productId }) => {
 	const dispatch = useAppDispatch()

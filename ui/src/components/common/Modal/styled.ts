@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Button from '../Button'
+import Button from '@/components/common/Button'
 
 export const Layout = styled.div`
 	position: fixed;

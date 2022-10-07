@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { useAppDispatch } from '@/hooks'
 import { createPortal } from 'react-dom'
 
-import Modal from '../../common/Modal'
-import ProductForm from '../../common/ProductForm'
+import { add } from '@/store/slices/product-slice'
+import { isFormDataValid, compileFormData } from '@/helpers'
+import { FormInputData } from '@/types'
+
+import Modal from '@/components/common/Modal'
+import ProductForm from '@/components/common/ProductForm'
+
+import { BUTTON_GREEN_COLOR } from '@/variable'
+
 import { ButtonStyled } from './styled'
-import { BUTTON_GREEN_COLOR } from '../../../variable'
-import { useAppDispatch } from '../../../hooks'
-import { add } from '../../../store/slices/product-slice'
-import { isFormDataValid, compileFormData } from '../../../helpers'
-import { FormInputData } from '../../../types'
 
 const AddButton: React.FC = () => {
 	const dispatch = useAppDispatch()

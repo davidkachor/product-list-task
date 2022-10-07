@@ -1,4 +1,4 @@
-import { FormInputData } from '../types'
+import { FormInputData } from '@/types'
 
 const isFormDataValid: (data: FormInputData) => boolean = formData => {
 	return Boolean(

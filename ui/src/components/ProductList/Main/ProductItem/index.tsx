@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import { useAppDispatch } from '../../../../hooks'
-import { remove } from '../../../../store/slices/product-slice'
-import { Product } from '../../../../types'
-import Modal from '../../../common/Modal'
+import { useAppDispatch } from '@/hooks'
 
+import { remove } from '@/store/slices/product-slice'
+import { Product } from '@/types'
+
+import Modal from '@/components/common/Modal'
 import { Item, Image, Title, Remove, TitleButtonContainer } from './styled'
-import { useNavigate } from 'react-router-dom'
 
 const ProductItem: React.FC<Product> = ({ name, id, imageUrl }) => {
 	const dispatch = useAppDispatch()
-	const navigate = useNavigate()
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const removeHandler = () => {

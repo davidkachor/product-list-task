@@ -1,6 +1,7 @@
 import React from 'react'
+import { useAppSelector } from '@/hooks'
+
 import { ListWrapper, MainStyled, Message } from './styled'
-import { useAppSelector } from '../../../hooks'
 
 import ProductItem from './ProductItem'
 

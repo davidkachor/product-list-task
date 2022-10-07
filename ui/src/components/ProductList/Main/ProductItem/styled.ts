@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import Button from '../../../common/Button'
-import { BUTTON_RED_COLOR } from '../../../../variable'
-import {Link} from "react-router-dom";
+import Button from '@/components/common/Button'
+import { BUTTON_RED_COLOR } from '@/variable'
+import { Link } from 'react-router-dom'
 
 export const Item = styled.article`
 	display: flex;
@@ -30,7 +30,7 @@ export const TitleButtonContainer = styled.div`
 `
 
 export const Title = styled(Link)`
-	font-weight: bold;	
+	font-weight: bold;
 `
 
 export const Remove = styled(Button).attrs({

@@ -1,5 +1,7 @@
 import React, { EventHandler, useId, useState } from 'react'
 
+import { FormInputData } from '@/types'
+import { isUrlValid } from '@/helpers'
 import {
 	FormController,
 	Container,
@@ -10,8 +12,6 @@ import {
 	Check,
 	Image,
 } from './styled'
-import { isUrlValid } from '../../../helpers'
-import { FormInputData } from '../../../types'
 
 const ProductForm: React.FC<{
 	setInputs: (updates: FormInputData) => void

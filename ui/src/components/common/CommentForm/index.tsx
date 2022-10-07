@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Button from '../Button'
-import { v4 } from 'uuid'
+import { useAppDispatch } from '@/hooks'
+import { addComment } from '@/store/slices/product-slice'
 
+import { v4 } from 'uuid'
+import Button from '@/components/common/Button'
 import { Form, Input } from './styled'
-import { useAppDispatch } from '../../../hooks'
-import { addComment } from '../../../store/slices/product-slice'
 
 const CommentForm: React.FC<{ id: string }> = ({ id }) => {
 	const dispatch = useAppDispatch()
@@ -12,6 +12,7 @@ const CommentForm: React.FC<{ id: string }> = ({ id }) => {
 
 	const submitHandler: React.FormEventHandler = event => {
 		event.preventDefault()
+		if (!description) return
 		dispatch(
 			addComment({
 				productId: id,
@@ -28,7 +29,7 @@ const CommentForm: React.FC<{ id: string }> = ({ id }) => {
 
 	return (
 		<Form onSubmit={submitHandler}>
-			<Input onChange={event => setDescription(event.target.value)} />
+			<Input value={description} onChange={event => setDescription(event.target.value)} />
 			<Button>Add new comment</Button>
 		</Form>
 	)
