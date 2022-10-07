@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Comment, FormInputData, Product } from '@/types'
 
+const initialState =
+	(JSON.parse(localStorage.getItem('PRODUCT_STORE') || '[]')
+		?.products as Product[]) || ([] as Product[])
+
 const productSlice = createSlice({
-	initialState:
-		(JSON.parse(localStorage.getItem('PRODUCT_STORE') || '')
-			?.products as Product[]) || ([] as Product[]),
+	initialState,
 	name: 'products',
 	reducers: {
 		remove(state, action: PayloadAction<string>) {
