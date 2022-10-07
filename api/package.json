@@ -45,7 +45,8 @@
     "jsonfile": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "sequelize": "^6.24.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
