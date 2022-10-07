@@ -12,8 +12,8 @@ import {
 } from './styled'
 
 import CommentItem from './CommentItem'
-import Button from '../../../common/Button'
-import CommentForm from "../../../common/CommentForm";
+import EditButton from '../../../common/EditButton'
+import CommentForm from '../../../common/CommentForm'
 
 const ProductItem: React.FC<Product> = ({
 	id,
@@ -37,7 +37,7 @@ const ProductItem: React.FC<Product> = ({
 				<ButtonContainer>
 					<ToMain to="/">Back to product list</ToMain>
 					<p>{id}</p>
-					<Button>Edit</Button>
+					<EditButton productId={id} />
 				</ButtonContainer>
 				<Title>{name}</Title>
 				<p>Count: x{count}</p>

@@ -10,16 +10,21 @@ import {
 	Check,
 	Image,
 } from './styled'
-import { isUrlValid } from '../../../../helpers'
-import { FormInputData } from '../index'
+import { isUrlValid } from '../../../helpers'
+import { FormInputData } from '../../../types'
 
-const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
-	setInputs,
-}) => {
+const ProductForm: React.FC<{
+	setInputs: (updates: FormInputData) => void
+	inputsState: FormInputData
+}> = ({ setInputs, inputsState }) => {
 	const id = useId()
-	const [imgURL, setImgURL] = useState('')
+	const [imgURL, setImgURL] = useState(inputsState?.imageUrl || '')
 	const [showImg, setShowImg] = useState(false)
-	const [weight, setWeight] = useState({ value: '', type: 'kg' })
+	const [weight, setWeight] = useState({
+		value:
+			inputsState?.weight?.replaceAll(new RegExp('(kg|g|t)', 'gm'), '') || '',
+		type: inputsState?.weight?.match(new RegExp('(kg|g|t)', 'gm'))?.[0] || 'kg',
+	})
 
 	const showImgHandler: EventHandler<any> = () => {
 		if (!isUrlValid(imgURL)) return
@@ -34,6 +39,7 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 				<Input
 					type="text"
 					id={`name-${id}`}
+					value={inputsState?.name || ''}
 					placeholder="Write the name of your product"
 					onChange={event => setInputs({ name: event.target.value })}
 				/>
@@ -45,6 +51,7 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 					step="1"
 					min="1"
 					id={`count-${id}`}
+					value={inputsState?.count || ''}
 					onChange={event => setInputs({ count: event.target.valueAsNumber })}
 					placeholder="How much do you have?"
 				/>
@@ -57,6 +64,7 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 						step="0.1"
 						min="0.1"
 						id={`weight-${id}`}
+						value={weight.value || ''}
 						onChange={event => {
 							setWeight(prev => ({ ...prev, value: event.target.value }))
 							setInputs({ weight: event.target.value + weight.type })
@@ -84,6 +92,7 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 						step="0.1"
 						min="0.1"
 						id={`width-${id}`}
+						value={inputsState?.width || ''}
 						onChange={event => setInputs({ width: event.target.valueAsNumber })}
 						placeholder="Product width"
 					/>
@@ -95,6 +104,7 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 						step="0.1"
 						min="0.1"
 						id={`height-${id}`}
+						value={inputsState?.height || ''}
 						onChange={event =>
 							setInputs({ height: event.target.valueAsNumber })
 						}
@@ -108,6 +118,7 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 					type="text"
 					id={`image-${id}`}
 					placeholder="Write the URL of the image here"
+					value={imgURL}
 					onChange={event => {
 						if (showImg) setShowImg(false)
 						setImgURL(event.target.value)
@@ -116,11 +127,11 @@ const AddForm: React.FC<{ setInputs: (updates: FormInputData) => void }> = ({
 				{showImg ? (
 					<Image src={imgURL} />
 				) : (
-					<Check onClick={showImgHandler}>Check it</Check>
+					<Check onClick={showImgHandler}>Confirm image</Check>
 				)}
 			</FormController>
 		</Container>
 	)
 }
 
-export default AddForm
+export default ProductForm

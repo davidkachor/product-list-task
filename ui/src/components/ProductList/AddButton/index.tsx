@@ -2,21 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
 import Modal from '../../common/Modal'
-import AddForm from './AddForm'
+import ProductForm from '../../common/ProductForm'
 import { ButtonStyled } from './styled'
 import { BUTTON_GREEN_COLOR } from '../../../variable'
 import { useAppDispatch } from '../../../hooks'
 import { add } from '../../../store/slices/product-slice'
 import { isFormDataValid, compileFormData } from '../../../helpers'
-
-export type FormInputData = {
-	name?: string
-	count?: number
-	width?: number
-	height?: number
-	weight?: string
-	imageUrl?: string
-}
+import { FormInputData } from '../../../types'
 
 const AddButton: React.FC = () => {
 	const dispatch = useAppDispatch()
@@ -60,7 +52,7 @@ const AddButton: React.FC = () => {
 					isForm={true}
 					isSubmittable={isFormValid}
 				>
-					<AddForm setInputs={setInputsHandler} />
+					<ProductForm setInputs={setInputsHandler} inputsState={formData} />
 				</Modal>
 			)}
 		</>

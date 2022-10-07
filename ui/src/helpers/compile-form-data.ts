@@ -1,5 +1,4 @@
-import { FormInputData } from '../components/ProductList/AddButton'
-import { Product } from '../types'
+import { Product, FormInputData } from '../types'
 import { v4 } from 'uuid'
 
 const compileFormData: (data: FormInputData) => Product = ({

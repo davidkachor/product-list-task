@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { MOCHA_DATA } from '../../MOCHA_DATA'
-import { Comment, Product } from '../../types'
+import { Comment, FormInputData, Product } from '../../types'
 
 const productSlice = createSlice({
 	initialState: MOCHA_DATA as Product[],
@@ -22,9 +22,25 @@ const productSlice = createSlice({
 			if (!item) return state
 			item.comments.unshift(comment)
 		},
+		editProduct(
+			state,
+			action: PayloadAction<{ productId: string; updates: FormInputData }>
+		) {
+			const { productId, updates } = action.payload
+			const item = state.find(e => e.id === productId)
+			if (!item) return
+			item.name = updates.name || item.name
+			item.count = updates.count || item.count
+			item.weight = updates.weight || item.weight
+			item.size = {
+				width: updates.width || item.size.width,
+				height: updates.height || item.size.height,
+			}
+			item.imageUrl = updates.imageUrl || item.imageUrl
+		},
 	},
 })
 
-export const { remove, add, addComment } = productSlice.actions
+export const { remove, add, addComment, editProduct } = productSlice.actions
 
 export default productSlice.reducer
