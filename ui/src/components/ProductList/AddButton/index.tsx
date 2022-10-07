@@ -9,7 +9,7 @@ import { FormInputData } from '@/types'
 import Modal from '@/components/common/Modal'
 import ProductForm from '@/components/common/ProductForm'
 
-import { BUTTON_GREEN_COLOR } from '@/variable'
+import { BUTTON_GREEN_COLOR } from '@/variables'
 
 import { ButtonStyled } from './styled'
 

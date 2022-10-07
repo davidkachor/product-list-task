@@ -7,7 +7,7 @@ import cross from '@/assets/icons/cross.svg'
 import {
 	BUTTON_GREEN_COLOR,
 	BUTTON_RED_COLOR,
-} from '@/variable'
+} from '@/variables'
 import {
 	Layout,
 	Header,

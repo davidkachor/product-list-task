@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Button from '@/components/common/Button'
-import { BUTTON_RED_COLOR } from '@/variable'
+import { BUTTON_RED_COLOR } from '@/variables'
 import { Link } from 'react-router-dom'
 
 export const Item = styled.article`

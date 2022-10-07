@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Button from '../Button'
-import { BUTTON_GREY_COLOR } from '@/variable'
+import { BUTTON_GREY_COLOR } from '@/variables'
 
 export const FormController = styled.div`
 	display: flex;
